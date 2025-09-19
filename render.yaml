@@ -9,6 +9,9 @@ services:
     region: frankfurt
     plan: starter
     rootDir: apps/backend
+    previews:
+      plan: starter
+      generation: manual
     buildCommand: npm install
     startCommand: npm start
     buildFilter:
@@ -21,6 +24,9 @@ services:
     region: frankfurt
     plan: starter
     rootDir: apps/frontend
+    previews:
+      plan: starter
+      generation: manual
     buildCommand: npm install
     startCommand: npm start
     buildFilter:

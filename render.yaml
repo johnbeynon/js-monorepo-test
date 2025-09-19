@@ -8,6 +8,8 @@ services:
     name: backend
     region: frankfurt
     plan: starter
+    previews:
+      plan: starter
     rootDir: apps/backend
     buildCommand: npm install
     startCommand: npm start
@@ -23,6 +25,8 @@ services:
     rootDir: apps/frontend
     buildCommand: npm install
     startCommand: npm start
+    previews:
+      plan: starter
     buildFilter:
       paths: 
         - apps/frontend/**

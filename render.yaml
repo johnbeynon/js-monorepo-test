@@ -1,0 +1,35 @@
+previews:
+  generation: manual
+  expireAfterDays: 3
+
+services:
+  - type: pserv
+    runtime: node
+    name: backend
+    region: frankfurt
+    plan: starter
+    rootDir: apps/backend
+    buildCommand: npm install
+    startCommand: npm start
+    buildFilter:
+      paths: 
+        - apps/backend/**
+
+  - type: web
+    runtime: node
+    name: frontend
+    region: frankfurt
+    plan: starter
+    rootDir: apps/frontend
+    buildCommand: npm install
+    startCommand: npm start
+    buildFilter:
+      paths: 
+        - apps/frontend/**
+    envVars:
+      - key: 
+          BACKEND_INTERNAL_HOSTPORT
+        fromService:
+          name: backend
+          type: pserv
+          property: hostport
